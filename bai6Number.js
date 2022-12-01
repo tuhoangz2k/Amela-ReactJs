@@ -4,17 +4,17 @@
 
 const sortNumber = (n) => {
     if(typeof n !== 'number') return 'invalid parameter';
-    let isNagative=false;
-    if(n<0) isNagative =true
+    let isNavigate=false;
+    if(n<0) isNavigate =true
     const arr= n.toString().split('');
-    if(isNagative) arr.shift();
+    if(isNavigate) arr.shift();
     arr.sort((a, b) => {
         const newA=Number.parseInt(a);
         const newB=Number.parseInt(b);
         return newA-newB
     })
 
-    return isNagative ? Number.parseInt('-'+ arr.join('')) : Number.parseInt(arr.join(''))
+    return isNavigate ? Number.parseInt('-'+ arr.join('')) : Number.parseInt(arr.join(''))
 }
 
 console.log(sortNumber(-53751));

@@ -13,8 +13,17 @@ const sortNumber = (n) => {
         const newB=Number.parseInt(b);
         return newA-newB
     })
-
-    return isNavigate ? Number.parseInt('-'+ arr.join('')) : Number.parseInt(arr.join(''))
+    let minNumberIdx=0
+    arr[0]==='0'
+    while(arr[minNumberIdx]==='0'&& !isNavigate){
+        minNumberIdx++
+    }
+    if(arr[0]==='0'&& !isNavigate){
+        const tmp=arr[minNumberIdx];
+        arr[minNumberIdx]=arr[0];
+        arr[0]=tmp
+    }
+    return isNavigate ? Number.parseInt('-'+ arr.reverse().join('')) : Number.parseInt(arr.join(''))
 }
 
-console.log(sortNumber(-53751));
+console.log(sortNumber(-1100345));

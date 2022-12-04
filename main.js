@@ -64,3 +64,4 @@ function uppercase(str) {
 }
 
 console.log(uppercase('mot hai ba'))
+console.log('test')

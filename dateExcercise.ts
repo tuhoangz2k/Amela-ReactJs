@@ -99,8 +99,28 @@ const getEndOfMonth = (year:number,month:number) => {
 console.log(getEndOfMonth(2022,12))
 
 // Bài 9: Viết hàm đếm ngược thời gian đến tết dương lịch
+  const  countDownNewYear=():string=>{
 
-// Bài 10: Viết hàm có 2 tham số, tham số đầu tiên là 1 chuỗi thời gian t dạng ''giờ:phút:giây'', tham số thứ 2 là 1 số x <= 1000. 
+    const newYear=new Date(new Date().getFullYear()+1,0,1,0,0,0).getTime()
+    const dateNow=new Date().getTime()
+    let restTime=newYear-dateNow
+    const second=1000
+    const minute=second*60
+    const hour=minute*60
+    const day=hour*24
+    const d = Math.floor(restTime / (day));
+    const h = Math.floor((restTime % (day)) / (hour));
+    const m = Math.floor((restTime % (hour)) / (minute));
+    const s = Math.floor((restTime % (minute)) / (second));
+    return `second:${s} - minute:${m} - hour:${h} - day:${d}`;
+
+  }
+  setInterval(()=>{
+    console.log(countDownNewYear())
+  },1000)
+
+// Bài 10: Viết hàm có 2 tham số, tham số đầu tiên là 1 chuỗi thời gian t dạng ''giờ:phút:giây'', tham số thứ 2 là 1 số x <= 1000.
+ 
 // Kết quả trả về là 1 chuỗi biểu thị thời gian sau x giây kể từ thời điểm t. Ví dụ với t = ''9:20:56'' và x = 7 thì kết quả là ''9:21:3''
 
 // Bài 11. Viết hàm reset data. Input là object. Output là object sau khi được reset 
